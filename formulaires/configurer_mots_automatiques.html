@@ -1,0 +1,32 @@
+<div class="formulaire_spip formulaire_configurer formulaire_#FORM">
+
+	<h3 class="titrem"><:mots_automatiques:cfg_titre_parametrages:></h3>
+
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+	<form method="post" action="#ENV{action}">
+	<div>
+		#ACTION_FORMULAIRE{#ENV{action}}
+
+		<label>Nombre de mots-clés à extraire automatiquement :</label><br/>
+		[<span class='erreur'>(#ENV**{erreurs}|table_valeur{nombre_mots_automatiques})</span>]
+		<div style="display:flex">
+			<output name="result" style="padding:1rem;">#ENV{nombre_mots_automatiques}</output>
+      <input type="range" style="flex:1;" name="nombre_mots_automatiques" min="0" max="30" step="1" value="#ENV{nombre_mots_automatiques}" oninput="result.value=parseInt(nombre_mots_automatiques.value)"/>
+    </div>
+		<br/>
+
+		<label>Méthode d'extraction des mots-clés :</label><br/>
+		[<span class='erreur'>(#ENV**{erreurs}|table_valeur{extracteur})</span>]
+		<select name="extracteur" style="margin: 1rem 0;">
+			<option value="api_yake" [(#ENV{extracteur}|match{api_yake}|oui)selected]>API Yake</option>
+		</select>
+		<br/>
+		<br/>
+
+		<input type="hidden" name="_meta_casier" value="mots_automatiques" />
+		<p class="boutons"><span class="image_loading">&nbsp;</span><input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>
+	</div>
+	</form>
+</div>

@@ -1,0 +1,27 @@
+<paquet
+	prefix="mots_automatiques"
+	categorie="navigation"
+	version="1.0.0"
+	etat="dev"
+	compatibilite="[3.2.4;3.2.*]"
+	logo="images/mots_automatiques.png"
+	documentation=""
+	schema="1.0.0"
+>
+	<!--
+		Paquet généré le 2020-01-16 22:22:40
+	-->
+
+	<nom>Mots Automatiques</nom>
+
+
+	<auteur>Pierre Tandille</auteur>
+
+	<licence>GNU/GPL</licence>
+
+	<necessite nom="mots_techniques" compatibilite="[1.0.0;[" />
+	<necessite nom="mots" compatibilite="[2.4.6;[" />
+
+	<pipeline nom="pre_edition"  inclure="mots_automatiques_pipelines.php" />
+
+</paquet>
