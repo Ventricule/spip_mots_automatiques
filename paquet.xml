@@ -20,8 +20,9 @@
 	<licence>GNU/GPL</licence>
 
 	<necessite nom="mots_techniques" compatibilite="[1.0.0;[" />
-	<necessite nom="mots" compatibilite="[2.4.6;[" />
+	<utilise nom="mots" compatibilite="[2.4.6;[" />
 
-	<pipeline nom="pre_edition"  inclure="mots_automatiques_pipelines.php" />
+	<pipeline nom="header_prive" inclure="mots_automatiques_pipelines.php" />
+	<pipeline nom="post_edition"  inclure="mots_automatiques_pipelines.php" />
 
 </paquet>

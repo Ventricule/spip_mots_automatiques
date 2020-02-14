@@ -11,7 +11,7 @@ function formulaires_configurer_mots_automatiques_verifier_dist(){
 	$erreurs = array();
 	// verifie que les champs obligatoires sont bien la :
 	foreach(array('nombre_mots_automatiques', 'extracteur') as $obligatoire)
-		if (!_request($obligatoire)) $erreurs[$obligatoire] = 'Ce champ est obligatoire';
+		if (_request($obligatoire) === false) $erreurs[$obligatoire] = 'Ce champ est obligatoire';
 
 	// verifie que le nombre de mots-clés automatique est valide :
 	$nombre_mots_automatiques = intval(_request('nombre_mots_automatiques'));

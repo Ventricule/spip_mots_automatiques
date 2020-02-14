@@ -25,6 +25,34 @@
 		<br/>
 		<br/>
 
+		<label>Extraire les mots clefs de tous les articles :</label><br/>
+		<br/>
+		[<span class='erreur'>(#ENV**{erreurs}|table_valeur{nombre_mots_automatiques})</span>]
+		<div style="display:flex">
+			<progress class="avancement" value="0" max="1" style="flex:1;"></progress>
+		</div>
+		<br/>
+		<div style="display: flex;">
+			<div>
+				<input type="button" id="commencer" value="Lancer l'extraction" />
+				<input type="button" id="arreter" value="Arrêter" style="display: none" />
+			</div>
+			<div style="flex: 1; padding: 0 1rem; text-overflow: ellipsis; overflow: hidden;">
+				<B_articles>
+					<ul class="articles">
+						<BOUCLE_articles(ARTICLES){par date}>
+							<li data-id="#ID_ARTICLE" style="display:none;">#TITRE</li>
+						</BOUCLE_articles>
+					</ul>
+				</B_articles>
+			</div>
+			<div><span class="numerateur"></span> / <span class="denominateur"></span></div>
+		</div>
+		<div class="alerte_fenetre" style="color: red; display: none;">Ne pas fermer la fenêtre pendant l'extraction.</div>
+		<br/>
+		<br/>
+
+
 		<input type="hidden" name="_meta_casier" value="mots_automatiques" />
 		<p class="boutons"><span class="image_loading">&nbsp;</span><input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>
 	</div>
